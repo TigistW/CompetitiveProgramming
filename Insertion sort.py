@@ -12,8 +12,9 @@ def insertionSort1(n, arr):
         arr[j+1]=current
         
     print(arr)
-def printArray(arr,n):
+if __name__ == '__main__':
+    n = int(input().strip())
 
-    for i in range(n):
-        print(arr[i])
-    
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort1(n, arr)
