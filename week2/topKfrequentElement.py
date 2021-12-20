@@ -9,3 +9,4 @@ class Solution:
         for i in range(k):
             listt.append(li[i][0])
         return listt
+        
