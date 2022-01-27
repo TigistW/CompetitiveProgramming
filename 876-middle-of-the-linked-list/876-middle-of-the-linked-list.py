@@ -3,16 +3,18 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        second=head
-        first=head
-        while(second.next and second.next.next):
-            first=first.next
-            second=second.next.next
+        fast=head
+        slow=head
+        
+        while(fast.next and fast.next.next):
+            slow=slow.next
+            fast=fast.next.next 
             
-        if second.next:
-            first=first.next
+        if fast.next:
+            slow=slow.next
             
-        return first
+        return slow
             
