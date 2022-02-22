@@ -6,8 +6,6 @@
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         heap=[]
-
-        # f_ans=ListNode(None)
         a = ans=ListNode(None)
         for list in lists:
             while list:
