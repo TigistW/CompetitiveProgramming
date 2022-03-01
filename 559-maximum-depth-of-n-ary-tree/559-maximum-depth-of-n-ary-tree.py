@@ -7,27 +7,12 @@ class Node:
 """
 
 class Solution:
-    def maxDepth(self, root: 'Node') -> int:
-        
-        def dfs (root,maxLen):
-
-            for child in root.children:
-                listt.append([child , maxLen + 1])
-                dfs(child,maxLen + 1)
-            # return maxLen
-        
-        listt = [[root,1]]
-        # maxLen = 1
-        if root:
-            dfs(root,1)
-        else:
+    def maxDepth(self, node: 'Node') -> int:
+        if not node:
             return 0
-        # print(listt)
-        listt.sort(key = lambda x : x[1])
+        if not node.children:
+            return 1
+        return max(self.maxDepth(child) for child in node.children) + 1
+        
+        
     
-        return listt[-1][1]
-        
-                
-                
-        
-        
