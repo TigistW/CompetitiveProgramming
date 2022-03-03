@@ -11,19 +11,20 @@ class Solution:
         
         while queue:
             level_size = len(queue)
-            cur_sum = 0
+            current_sum = 0
             
             for i in range(level_size):
-                cur_num = queue.popleft()
-                if cur_num:
-                    cur_sum += cur_num.val
-                    if cur_num.left:
-                        queue.append(cur_num.left)
-                    if cur_num.right:
-                        queue.append(cur_num.right)
-                        
-            result.append(cur_sum/level_size)
-        return result  
+                current_node = queue.popleft()
+                current_sum += current_node.val 
+                
+                if current_node.left:
+                    queue.append(current_node.left)
+                if current_node.right:
+                    queue.append(current_node.right)
+                    
+            result.append(current_sum / level_size)
+            
+        return result
                 
                 
                 
