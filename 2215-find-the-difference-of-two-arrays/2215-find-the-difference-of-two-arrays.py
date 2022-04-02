@@ -6,8 +6,6 @@ class Solution:
         first = len(set1)
         second = len(set2)
 
-        arr1 = []
-        arr2 = []
         arr = [[],[]]
         for i in range(len(nums1)):
             set1.add(nums1[i])
