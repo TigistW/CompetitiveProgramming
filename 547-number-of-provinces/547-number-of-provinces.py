@@ -1,24 +1,5 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-#         def __init__ (size):
-#             # for i in range(size):
-#             #     self.root = i
-#             root = [i for i in range(size)]
-#             count = size
-
-#         def find(node):
-#             if root[node] != node:
-#                 return find(root[node])
-#             return root[node]
-
-#         def union(node1,node2):
-#             node1_pare,node2_pare = find(node1),find(node2)
-#             if node1_pare != node2_pare:
-#                 root[node2_pare] = node1_pare
-#                 count -= 1
-
-#         def count():
-#             return count
         n = len(isConnected)
         uf = UF(n)
         for i in range(len(isConnected)):
