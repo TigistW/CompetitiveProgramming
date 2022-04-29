@@ -1,5 +1,5 @@
 class Solution:
-    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:        
         
         ans=[]
         heap=[]
@@ -18,5 +18,3 @@ class Solution:
         # print(count)
         
         return ans
-    
-    
