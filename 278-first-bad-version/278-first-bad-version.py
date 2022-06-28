@@ -5,7 +5,7 @@ class Solution:
     def firstBadVersion(self, n: int) -> int:
         badnum=-1
         left=0
-        right=(2**31)-1
+        right=n
         
         while(left<=right):
             mid=left+(right-left)//2
