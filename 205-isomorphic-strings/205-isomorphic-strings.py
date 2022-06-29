@@ -1,11 +1,28 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        # print(*map(s.index, s))
-        # print(*map(t.index, t))
-        
-        if [*map(s.index, s)] == [*map(t.index, t)]:
-            return True
+      
+      hashset = set()
+      
+      hashsettwo = set()
+      hashtable = dict()
+      if len(s) != len(t):
         return False
+      
+      for i in range(len(s)):
+        if s[i] not in hashset:
+          if t[i] not in hashsettwo:
+            hashtable[s[i]] = t[i]
+            hashset.add(s[i])
+            hashsettwo.add(t[i])
+          else:
+            return False
+        else:
+          if hashtable[s[i]] == t[i]:
+            continue
+          else:
+            return False
+      return True
+            
+      
+      
         
-            
-            
