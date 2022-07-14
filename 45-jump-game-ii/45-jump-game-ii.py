@@ -1,5 +1,6 @@
 class Solution:
   def jump(self, nums: List[int]) -> int:
+    
     res = 0
     end = 0
     longest = 0
