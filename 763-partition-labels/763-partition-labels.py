@@ -11,5 +11,4 @@ class Solution:
             if i == end:
                 partitions.append(end-start+1)
                 start = end + 1
-                
         return partitions
