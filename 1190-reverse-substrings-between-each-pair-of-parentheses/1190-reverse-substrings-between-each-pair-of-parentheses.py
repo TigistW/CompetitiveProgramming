@@ -14,9 +14,9 @@ class Solution:
                     a = stack.pop()
                     if (a == "("):
                         break
-                    s1 = a + s1
+                    s1 = s1 + a
                     
-                s1 = s1[::-1]
+                # s1 = s1[::-1]
                 for i in s1:
                     stack.append(i)
         s1 = ""
