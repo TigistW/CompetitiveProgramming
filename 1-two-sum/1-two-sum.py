@@ -19,6 +19,3 @@ class Solution:
                 res.append(idx[diff]) 
                 break
         return res
-                
-                
-            
