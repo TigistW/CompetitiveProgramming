@@ -6,16 +6,17 @@
 # param_3 = obj.startsWith(prefix)
 
 class Node:
-  def __init__(self, let = ""):
-    self.let = let
+  def __init__(self):
     self.end = False
     self.children = {}
     
 class Trie:
+  
   def __init__(self):
     self.root = Node()
     
   def insert(self, word):
+    
     cur = self.root 
     for i in word: 
       if i not in cur.children:
@@ -24,17 +25,16 @@ class Trie:
     cur.end = True
   
   def search(self, word):
+    
     cur = self.root
-
     for i in word: 
       if i not in cur.children:
-         # cur.children[i] = Node()
           return False
       cur  = cur.children[i]
-
     if cur.end:
       return True
     return False
+    
     
   def startsWith(self, word):
     cur = self.root
@@ -44,6 +44,7 @@ class Trie:
           return False
       cur  = cur.children[i]
     return True
+    
 
   
     
