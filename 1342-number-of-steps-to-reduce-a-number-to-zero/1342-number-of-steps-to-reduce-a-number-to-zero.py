@@ -1,17 +1,61 @@
 class Solution:
     def numberOfSteps(self, num: int) -> int:
-      counter = 0
-      if num == 0:
-        return 0
+      
+      count = 0
       while num:
-        if num % 2 == 0:
-          num = num / 2
-          counter += 1
-        if num % 2 != 0: 
+        if num % 2 != 0:
+          count += 1
           num -= 1
-          num = num / 2
-          counter += 2
-      return counter -1 
-            
-            
-            
+          
+        else:
+          num /= 2
+          count += 1
+          
+      return count
+          
+          
+          
+          
+        
+        
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+#         counter = 0
+#         while num:
+#           if (num and 1) == 0:
+#             num = num >> 1
+#           else:
+#             num = num and ( ~(1)) 
+#           counter += 1
+#         return counter
