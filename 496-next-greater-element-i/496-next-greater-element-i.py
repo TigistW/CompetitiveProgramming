@@ -7,19 +7,33 @@ class Solution(object):
         """
         dic =dict()
         ans = [-1] * len(nums1)
+        stack = []
         
-        for i in range(len(nums1)):
-          dic[nums1[i]] = i
+        for j in range(len(nums1)):
+          dic[nums1[j]] = j  
           
         for i in range(len(nums2)):
-          if nums2[i] not in dic:
-            continue
-            
-          for j in range(i, len(nums2)):
-            if nums2[j] > nums2[i]:
-              ans[dic[nums2[i]]]=nums2[j]
-              break
+          if len(stack) == 0 and nums2[i] in dic:
+            stack.append(nums2[i])
+          elif stack and stack[-1]  >= nums2[i]: 
+             stack.append(nums2[i])
+          else:
+            while stack and stack[-1] < nums2[i]:
+              val = stack.pop()
+              ans[dic[val]] = nums2[i]    
+            if nums2[i] in dic:
+              stack.append(nums2[i]) 
         return ans
+              
+                
+                
+                
+              
+              
+            
+            
+          
+            
               
             
           
