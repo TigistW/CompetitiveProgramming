@@ -19,10 +19,4 @@ class Solution:
         subsequence = "".join(string)
         if subsequence == s:
           return True
-        return False
-      
-              
-              
-              
-          
-          
+        return False 
