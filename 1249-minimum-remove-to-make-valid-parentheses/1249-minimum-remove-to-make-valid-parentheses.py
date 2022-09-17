@@ -1,14 +1,11 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         stack = []
-        ans = []
         
         for i in range(len(s)):
-          if s[i].isalpha():
-            ans.append(i)
-          elif s[i] == "(":
+          if s[i] == "(":
             stack.append((s[i],i))
-          else:
+          elif s[i] == ")":
             if stack and stack[-1][0] == "(":
               stack.pop()
             else:
