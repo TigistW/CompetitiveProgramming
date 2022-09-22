@@ -1,7 +1,7 @@
 class Solution:
     def findPivot(self, nums):
         start, end, mid = 0, len(nums)-1, 1
-        while start<end:
+        while start < end:
             mid = (start+end)//2
             if start==end-1 and nums[start]>nums[end]:
                 return end
