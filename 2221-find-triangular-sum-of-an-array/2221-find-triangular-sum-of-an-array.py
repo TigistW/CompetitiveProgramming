@@ -3,16 +3,14 @@ class Solution:
         if len(nums) == 1:
           return nums[0]
         length = len(nums)
-        dp = [[0 for i in range(length - i)]  for i in range(length)]
-        
+        dp = []
         for i in range(length):
+          temp = [0 for i in range(length - i)]
           for j in range(length - i):
             if i == 0:
-              dp[i][j] = nums[j] % 10
-              
+              temp[j] = nums[j] % 10 
             else:
-              dp[i][j] = (dp[i - 1][j] + dp[i - 1][j + 1]) % 10
-              
-        # print(dp)
-        return dp[-1][0]
+              temp[j] = (dp[j] + dp[j + 1]) % 10
+          dp = temp
+        return dp[-1]
               
