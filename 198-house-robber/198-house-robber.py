@@ -6,4 +6,4 @@ class Solution:
             max_money = max(one + i, two)
             one = two
             two = max_money
-        return two       
+        return two      
