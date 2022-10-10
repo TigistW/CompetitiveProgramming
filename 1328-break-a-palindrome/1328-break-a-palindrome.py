@@ -1,18 +1,49 @@
 class Solution:
     def breakPalindrome(self, palindrom: str) -> str:
-        lis_pali  = []
+      palindrom = list(palindrom)
+      if len(palindrom) == 1:
+        return ""
+      if len(palindrom) % 2 != 0:
+        if len(set(palindrom)) == 2:
+          if palindrom[0] == 'z':
+            palindrom[0] = "a"
+            return "".join(palindrom)
+          elif palindrom[0] == 'a':
+            palindrom[-1] = chr(ord(palindrom[-1]) + 1)
+            return "".join(palindrom)
+          else:
+            palindrom[0] = "a"
+            return "".join(palindrom)
+          
+      if len(set(palindrom)) == 1:
+        if palindrom[-1] == "z":
+          palindrom[0] = "a"
+          return "".join(palindrom)
+        elif palindrom[-1] == "a":
+          palindrom[-1] = chr(ord(palindrom[-1]) + 1)
+          return "".join(palindrom)
+        else:
+          palindrom[0] = "a"
+          return "".join(palindrom)
         
-        if len(palindrom) == 1:
-            return ""
-        lis_pali = list(palindrom)        
-        for i in range(len(lis_pali)):
-            if lis_pali[i] != "a":
-                    if i != len(lis_pali) - 1:
-                        if i != (len(lis_pali) // 2):
-                            lis_pali[i] = "a"
-                            break             
-            elif lis_pali[i] == "a" and i == len(lis_pali) - 1:
-                lis_pali[i] = chr(ord(lis_pali[i]) + 1)
-                break
-        return ''.join (lis_pali)
-                 
+      i = 0
+      while i < len(palindrom):
+        if palindrom[i] == "a":
+          # print(palindrom[i])
+          i += 1
+        else:
+          break
+      # print(i)
+      if len(palindrom) % 2 != 0 and i == len(palindrom) // 2:
+        palindrom[(len(palindrom) // 2) + 1] = "a"
+        return "".join(palindrom)
+      else:
+        palindrom[i] = "a"
+        return "".join(palindrom)
+      
+      
+      
+      
+        
+      
+      
