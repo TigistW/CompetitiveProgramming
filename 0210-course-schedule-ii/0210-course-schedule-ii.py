@@ -1,25 +1,40 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        courses = defaultdict(set) # {courses: pres}
-        pres = defaultdict(set)   #{pres: courses}
-        res = []
+      value = numCourses
+      incoming = [0 for i in range(numCourses)]
+      ans = []
+      graph = collections.defaultdict(list)
+      
+      # if not prerequisites:
+      #   return [i for i in range(numCourses)]
+      for c,d in prerequisites:
+        incoming[c] += 1
+        graph[d].append(c)
         
-        for course, pre in prerequisites:
-            courses[course].add(pre)
-            pres[pre].add(course)
-            
-        stack=[ n for n in range(numCourses) if not courses[n]]
-        count = 0
-        # print(courses, pres, stack)
+      queue = deque()
+      for i in range(numCourses):
+        if incoming[i] == 0:
+          queue.append(i)
+          
+      while queue:
+        cur = queue.popleft()
+        ans.append(cur)
+        numCourses -= 1
+        for dep in graph[cur]:
+          incoming[dep] -= 1
+          if incoming[dep] == 0:
+            queue.append(dep)
+      print(ans)
+      if len(ans) == value:
+        return ans
+      return []
+    
+          
+          
         
-        while stack:
-            no_pre = stack.pop()
-            res.append(no_pre)
-            count+=1
-            for course in pres[no_pre]:
-                courses[course].remove(no_pre)
-                if not courses[course]:
-                    stack.append(course)
-        return res if count==numCourses else []
-
+        
+      
+        
+      
+      
       
