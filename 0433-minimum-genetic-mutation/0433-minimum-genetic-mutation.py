@@ -6,7 +6,6 @@ class Solution:
         ops = 0
         visited = set()
         while queue:
-          print(queue)
           for i in range(len(queue)):
             cur = queue.popleft()
             if cur == end:
