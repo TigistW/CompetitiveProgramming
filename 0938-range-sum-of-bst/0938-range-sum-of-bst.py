@@ -14,9 +14,10 @@ class Solution:
           if low <= node.val <= high:
             total += node.val
             
-          if node.left:
+          
+          if node.left and node.val >= low:
             stack.append(node.left)
-          if node.right:
+          if node.right and node.val <= high:
             stack.append(node.right)
             
         return total
