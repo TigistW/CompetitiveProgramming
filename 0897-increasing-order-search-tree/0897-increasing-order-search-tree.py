@@ -7,9 +7,6 @@
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
         tree = []
-        seen = set()
-        rt = TreeNode()
-        
         def inorder(node):
           if node:
             inorder(node.left)
