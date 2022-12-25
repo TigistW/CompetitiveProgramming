@@ -1,6 +1,5 @@
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
-        
         ans = []
         nums.sort()
         for i in queries:
