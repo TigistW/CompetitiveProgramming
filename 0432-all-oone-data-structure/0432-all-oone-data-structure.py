@@ -1,34 +1,36 @@
 class AllOne:
     def __init__(self):
         self.key_count = defaultdict(int)
-        self.count_key = defaultdict(set)
+        self.cnt = defaultdict(set)
+        
         self.max_heap = []
         self.min_heap = []
         
     def inc(self, key: str) -> None:
-        og_value = self.key_count[key]
-        if self.count_key[og_value]:
-            self.count_key[og_value].remove(key)
-        og_value+=1
-        self.count_key[og_value].add(key)
-        self.key_count[key]=og_value
-        heapq.heappush(self.max_heap, -(og_value))
-        heapq.heappush(self.min_heap, (og_value))   
+        old = self.key_count[key]
+        if self.cnt[old]:
+            self.cnt[old].remove(key)
+            
+        old+=1
+        self.cnt[old].add(key)
+        self.key_count[key]=old
+        heapq.heappush(self.max_heap, -(old))
+        heapq.heappush(self.min_heap, (old))   
         return
         
 
     def dec(self, key: str) -> None:
-        og_value = self.key_count[key]
-        self.count_key[og_value].remove(key)
-        og_value -= 1
-        if og_value == 0:
+        old = self.key_count[key]
+        self.cnt[old].remove(key)
+        old -= 1
+        if old == 0:
             del self.key_count[key]
             return
         
-        self.count_key[og_value].add(key)
-        self.key_count[key]=og_value
-        heapq.heappush(self.max_heap, -(og_value))
-        heapq.heappush(self.min_heap, (og_value)) 
+        self.cnt[old].add(key)
+        self.key_count[key]=old
+        heapq.heappush(self.max_heap, -(old))
+        heapq.heappush(self.min_heap, (old)) 
         return
 
     def getMaxKey(self) -> str:
@@ -37,9 +39,9 @@ class AllOne:
         
         while self.max_heap:
             val = -heapq.heappop(self.max_heap)
-            if self.count_key[val]:
+            if self.cnt[val]:
                 heapq.heappush(self.max_heap, -val)
-                for key in self.count_key[val]:
+                for key in self.cnt[val]:
                     return key
         return
         
@@ -50,9 +52,9 @@ class AllOne:
         
         while self.min_heap:
             val = heapq.heappop(self.min_heap)
-            if self.count_key[val]:
+            if self.cnt[val]:
                 heapq.heappush(self.min_heap, val)
-                for key in self.count_key[val]:
+                for key in self.cnt[val]:
                     return key
         return
         
