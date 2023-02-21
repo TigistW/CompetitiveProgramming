@@ -48,8 +48,8 @@ class Solution:
 
         val = NestedInteger()
 
-        for x in s:
-            val.add(self.dfs(x))
+        for i in s:
+            val.add(self.dfs(i))
         return val
     def deserialize(self, s: str) -> NestedInteger:
         return self.dfs(eval(s))
