@@ -3,12 +3,9 @@ class Solution:
         def validIdx(idx):
             return idx < len(arr) and idx >= 0 and idx not in vi
         
-        duplicate = dict()
+        duplicate = defaultdict(list)
         for i in range(len(arr)):
-            if arr[i] not in duplicate:
-                duplicate[arr[i]] = [i]
-            else:
-                duplicate[arr[i]].append(i)
+            duplicate[arr[i]].append(i)
                 
         visited = set()
         vi= set()
@@ -33,6 +30,6 @@ class Solution:
                     if validIdx(j):
                         q.append(j)      
             count += 1
-        return count
+        # return count
         
         
