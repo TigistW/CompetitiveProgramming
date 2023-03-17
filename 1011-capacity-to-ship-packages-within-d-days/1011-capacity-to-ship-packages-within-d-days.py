@@ -1,30 +1,31 @@
 class Solution:
-    def days(self, weights, k):
-      ans = 0
-      ship = 0
-      
-      for w in weights:
-        if ship + w <= k:
-          ship += w
-        else:
-          ship = w
-          ans += 1
-      
-      return ans + 1
-        
+    
+    def days(self, mid, weights):
+        res = 0
+        total = 0
+        for i in weights:
+            if total + i <= mid:
+                total += i
+            else:
+                res += 1
+                total = i
+        return res + 1
+    
     def shipWithinDays(self, weights: List[int], days: int) -> int:
-      l = max(weights)
-      r = sum(weights)
-      best = None
-      
-      while l <= r:
-        mid = l + (r - l) // 2
-        days_mid = self.days(weights, mid)
+        low = max(weights)
+        high = sum(weights)
+        best  = -1
         
-        if days_mid <= days:
-          r = mid - 1
-          best = mid
-        else:
-          l = mid + 1
-      
-      return best
+        while low <= high:
+            mid = (low + high) // 2
+            num_days = self.days(mid, weights)
+            if num_days <= days:
+                best = mid
+                high = mid - 1
+            else:
+                low = mid + 1   
+        return best
+            
+            
+                
+                
