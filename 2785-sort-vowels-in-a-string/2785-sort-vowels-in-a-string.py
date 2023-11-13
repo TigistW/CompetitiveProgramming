@@ -7,7 +7,6 @@ class Solution:
                 subs.append(ord(i))
         subs.sort()
 
-        sub = ["a","e","i","o","u","A","E","I","O","U"]
         ans = list(s)
         ind = 0
         for i in range(len(s)):
@@ -16,8 +15,3 @@ class Solution:
                 ind += 1
 
         return "".join(ans)
-                
-        
-        
-                
-            
