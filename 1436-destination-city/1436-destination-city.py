@@ -1,19 +1,13 @@
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        graph = {}
-        incoming = {}
+       
+        outgoing = set()
         
         for i, j in paths:
-            graph[i] = j
-            incoming[j] = 1
-
-        start  = ""
+            outgoing.add(i)
+            
         for i, j in paths:
-            if i not in incoming:
-                start = i
+            if j not in outgoing:
+                return j
             
-        for i in range(len(paths)):
-            start = graph[start]
-
-        return start
-            
+      
